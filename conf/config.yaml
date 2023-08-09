@@ -1,0 +1,38 @@
+# @package _global_
+
+defaults:
+  - dataset: synthia
+  - optimizer: sgd
+  - losses: weighted_crossentropy
+  - augmentations: transforms
+
+#run config
+gpus: [0]
+num_workers: 12
+project_name: warping_synthia
+version_run: "70"
+run_name:  baseline_proda_no_aug_fix_bn_wce
+precision: 32
+amp_level:
+test: False
+# resume_checkpoint: /data/aCardace/iterativive_da/experiments/segmentation_decomposition/self_training_baseline_2/checkpoint/epoch=17.ckpt # self training 52
+# resume_checkpoint: /data/aCardace/iterativive_da/experiments/gta/baseline_1/checkpoint/last.ckpt   #baseline, 47
+# resume_checkpoint: /data/aCardace/iterativive_da/experiments/warping_gta/warping_edge_noconcat_noST_30/checkpoint/last.ckpt  # warp+edge 48.7
+# resume_checkpoint: /data/aCardace/iterativive_da/experiments/warping_gta/warping_edge_noconcat_29/checkpoint/last.ckpt # warp+edge+st 52.7
+# resume_checkpoint: /data/aCardace/iterativive_da/experiments/warping_gta/target_only_ce_44/checkpoint/last.ckpt # distillation 53.6
+# resume_checkpoint: /data/aCardace/iterativive_da/experiments/warping_gta/distillation_52_100/checkpoint/last.ckpt
+resume_checkpoint:
+
+hydra:
+  run:
+    dir: ./experiments/${project_name}/${run_name}_${version_run}/
+
+#architecture
+backbone: resnet101
+
+#hyperarameters
+epochs: 20
+train_batch_size: 4
+val_batch_size: 1
+lr: 1e-3
+freeze_bn: True

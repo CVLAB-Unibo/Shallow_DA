@@ -1,0 +1,25 @@
+# @package _group_
+name: synthia
+data_dir: /media/data4/
+
+input_size: [512, 896]      #crop size
+out_train_size: [512,896]
+input_size_train: [760, 1280]
+
+input_size_val: [760, 1280]
+out_val_size: [760, 1280]
+
+input_size_val_target: [1024, 2048]
+out_val_size_target: [1024, 2048]
+
+source_train_list: splits/synthia/train.txt
+source_val_list: splits/synthia/val.txt
+target_train_list: splits/cityscapes/train.txt
+target_val_list: splits/cityscapes/val.txt
+num_classes: 16
+ignore_index: 16
+mean: [0.485, 0.456, 0.406]
+std: [0.229, 0.225, 0.224]
+encode: True
+source_encoding: synthia_full
+target_encoding: cs2synthia

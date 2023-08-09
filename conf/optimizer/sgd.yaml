@@ -1,0 +1,6 @@
+# @package _group_
+
+#optimizer
+optimizer_name: sgd
+momentum: 0.9
+weight_decay: 2e-4

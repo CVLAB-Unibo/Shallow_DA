@@ -1,0 +1,5 @@
+# @package _group_
+
+#optimizer
+optimizer_name: adamw
+weight_decay: 1e-4

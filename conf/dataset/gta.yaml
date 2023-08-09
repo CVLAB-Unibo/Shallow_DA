@@ -1,0 +1,18 @@
+# @package _group_
+name: gta
+data_dir: /data/aCardace/datasets
+input_size: [512, 512]
+out_train_size: [512, 512]
+input_size_val: [512, 1024]
+out_val_size: [1024, 2048]
+source_train_list: splits/gta/train.txt
+source_val_list: splits/gta/val.txt
+target_train_list: splits/cityscapes/train.txt
+target_val_list: splits/cityscapes/val.txt
+num_classes: 19
+ignore_index: 19
+mean: [0.485, 0.456, 0.406]
+std: [0.229, 0.225, 0.224]
+encode: False
+source_encoding: cs
+target_encoding: cs
